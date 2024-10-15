@@ -1,14 +1,14 @@
 //----------------------------------------
 //  Your web app's Firebase configuration
 //----------------------------------------
-var firebaseConfig = {
-    apiKey: ,
-    authDomain: ,
-    projectId: ,
-    storageBucket: ,
-    messagingSenderId: ,
-    appId:
-};
+const firebaseConfig = {
+    apiKey: "AIzaSyB1nx0_YkYcTJavi5YbVCtxRkmRTRG4sew",
+    authDomain: "comp1800-demo-8bbda.firebaseapp.com",
+    projectId: "comp1800-demo-8bbda",
+    storageBucket: "comp1800-demo-8bbda.appspot.com",
+    messagingSenderId: "976567663495",
+    appId: "1:976567663495:web:98c81700ff52b1efe3f122"
+  };
 
 //--------------------------------------------
 // initialize the Firebase app
