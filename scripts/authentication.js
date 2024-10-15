@@ -1,0 +1,1 @@
+<script src="./scripts/authentication.js"></script>
