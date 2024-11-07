@@ -20,3 +20,10 @@
     margin: 0 auto;
     /* Centers the circle horizontally */
   }
+
+  #hikes-title {
+    font-weight: 300;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+  }
