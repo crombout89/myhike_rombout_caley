@@ -27,3 +27,22 @@
     text-transform: capitalize;
     margin-bottom: 20px;
   }
+
+  /* Add CSS styles for the card container with vertical scrolling */
+.card-container {
+  max-height: 350px; /* Adjust the maximum height as needed */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Style the individual cards as needed */
+.card {
+  width: 45%; /* Adjust the width as per your design, leaving a little space for margins */
+  margin: 2%; /* Add margin between cards */
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    width: 100%;
+  }
+}
