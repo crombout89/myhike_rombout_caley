@@ -1,7 +1,3 @@
-//---------------------------------
-// Your own functions here
-//---------------------------------
-
 function writeHikes() {
     //define a variable for the collection you want to create in Firestore to populate data
     var hikesRef = db.collection("hikes");
@@ -46,8 +42,6 @@ function writeHikes() {
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("January 1, 2023"))
     });
 }
-
-writeHikes();
 
 //------------------------------------------------------------------------------
 // Input parameter is a string representing the collection we are reading from
