@@ -1,21 +1,27 @@
-function displayHikeInfo() {
-    let params = new URL( window.location.href ); //get URL of search bar
-    let ID = params.searchParams.get( "docID" ); //get value for key "id"
-    console.log( ID );
+document.addEventListener("DOMContentLoaded", function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const hikeDocID = urlParams.get('docID');
 
-    // doublecheck: is your collection called "Reviews" or "reviews"?
-    db.collection( "hikes" )
-        .doc( ID )
-        .get()
-        .then( doc => {
-            thisHike = doc.data();
-            hikeCode = thisHike.code;
-            hikeName = doc.data().name;
-            
-            // only populate title, and image
-            document.getElementById( "hikeName" ).innerHTML = hikeName;
-            let imgEvent = document.querySelector( ".hike-img" );
-            imgEvent.src = "../images/" + hikeCode + ".jpg";
-        } );
-}
-displayHikeInfo();
+    // Fetch hike data from Firestore using hikeDocID
+    const db = firebase.firestore();
+    db.collection('hikes').doc(hikeDocID).get().then((doc) => {
+        if (doc.exists) {
+            const hikeData = doc.data();
+            document.getElementById("hikeName").textContent = hikeData.name; // Set the hike name
+            document.querySelector(".hike-img").src = `images/${hikeData.code}.jpg`; // Set the hike image URL
+            document.querySelector(".hike-length").textContent = hikeData.length; // Set the hike length
+            document.querySelector(".hike-level").textContent = hikeData.level; // Set the hike level
+            document.querySelector(".hike-description").textContent = hikeData.details; // Set the hike details
+        } else {
+            console.error("No such document!");
+        }
+    }).catch((error) => {
+        console.error("Error getting document:", error);
+    });
+
+    // Add event listener for the Write Review button
+    document.getElementById("writeReviewButton").addEventListener("click", function() {
+        // Redirect to the review page
+        window.location.href = `review.html?docID=${hikeDocID}`;
+    });
+});
